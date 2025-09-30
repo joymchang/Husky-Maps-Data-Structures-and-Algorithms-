@@ -300,7 +300,6 @@ public abstract class DequeTests {
     }
 
     @Nested
-    @Disabled
     class RuntimeExperiments {
         /**
          * Number of trials per implementation run. Making this smaller means experiments run faster.
