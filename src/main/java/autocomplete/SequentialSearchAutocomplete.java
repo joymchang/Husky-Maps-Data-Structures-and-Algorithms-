@@ -25,12 +25,25 @@ public class SequentialSearchAutocomplete implements Autocomplete {
     @Override
     public void addAll(Collection<? extends CharSequence> terms) {
         // TODO: Replace with your code
-        throw new UnsupportedOperationException("Not implemented yet");
+
+        elements.addAll(terms);
+
+        //throw new UnsupportedOperationException("Not implemented yet");
     }
 
     @Override
     public List<CharSequence> allMatches(CharSequence prefix) {
         // TODO: Replace with your code
-        throw new UnsupportedOperationException("Not implemented yet");
+
+        List<CharSequence> result = new ArrayList<>();
+
+        for(CharSequence term : elements) {
+            if(Autocomplete.isPrefixOf(prefix, term)) {
+                result.add(term);
+            }
+        }
+        return result;
+
+        //throw new UnsupportedOperationException("Not implemented yet");
     }
 }
