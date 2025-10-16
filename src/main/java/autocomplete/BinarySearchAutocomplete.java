@@ -25,21 +25,19 @@ public class BinarySearchAutocomplete implements Autocomplete {
 
     @Override
     public void addAll(Collection<? extends CharSequence> terms) {
-        // TODO: Replace with your code
         // Add the new terms to the end of the list and then sort the whole list
 
         elements.addAll(terms);
-        Collections.sort(elements, CharSequence::compare);
+        Collections.sort(elements, null);
 
         //throw new UnsupportedOperationException("Not implemented yet");
     }
 
     @Override
     public List<CharSequence> allMatches(CharSequence prefix) {
-        // TODO: Replace with your code
 
         List<CharSequence> result = new ArrayList<>();
-        int index = Collections.binarySearch(elements, prefix, CharSequence::compare);
+        int index = Collections.binarySearch(elements, prefix, null);
         if(index < 0) {
             index = -1 * (index + 1);
         }
@@ -50,7 +48,5 @@ public class BinarySearchAutocomplete implements Autocomplete {
         }
 
         return result;
-        
-        //throw new UnsupportedOperationException("Not implemented yet");
     }
 }
