@@ -124,4 +124,25 @@ public abstract class MinPQTests {
             }
         }
     }
+
+    @Test
+    void simpleTest() {
+        MinPQ<String> reference = new DoubleMapMinPQ<>();
+        MinPQ<String> testing = createMinPQ();
+        for (int i = 1; i < 7; i += 1) {
+            reference.add("" + i, i);
+            testing.add("" + i, i);
+        }
+
+        reference.changePriority("3", 0.);
+        testing.changePriority("3", 0.);
+
+        reference.changePriority("1", 7.);
+        testing.changePriority("1", 7.);
+
+        while (!reference.isEmpty()) {
+            assertEquals(reference.removeMin(), testing.removeMin());
+        }
+        assertTrue(testing.isEmpty());
+    }
 }

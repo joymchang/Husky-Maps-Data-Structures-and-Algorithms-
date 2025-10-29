@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.MatchResult;
 import java.util.regex.Pattern;
+import minpq.DoubleMapMinPQ;
 
 /**
  * Display the most commonly-reported WCAG recommendations.
@@ -38,6 +39,23 @@ public class ReportAnalyzer {
                 .toList();
 
         // TODO: Display the most commonly-reported WCAG recommendations using MinPQ
+        DoubleMapMinPQ<String> pq = new DoubleMapMinPQ<>();
+        for(String tag : wcagTags) {
+            if(pq.contains(tag)){
+                double oldCount = pq.getPriority(tag);
+                pq.changePriority(tag, oldCount + 1);
+            } else {
+                pq.add(tag, 1);
+            }
+        }
+
+        System.out.println("Top 3 most commonly report WCAG tags:");
+        for(int i = 0; i < 3 && !pq.isEmpty(); i++){
+            String tag = pq.removeMin();
+            String desc = wcagDefinitions.get(tag);
+            System.out.println((i + 1) + ". " + desc + " - " + tag);
+        }
+
         throw new UnsupportedOperationException();
     }
 }
