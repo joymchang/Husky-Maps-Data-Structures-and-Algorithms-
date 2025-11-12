@@ -43,9 +43,9 @@ public class ReportAnalyzer {
         for(String tag : wcagTags) {
             if(pq.contains(tag)){
                 double oldCount = pq.getPriority(tag);
-                pq.changePriority(tag, oldCount + 1);
+                pq.changePriority(tag, oldCount - 1);
             } else {
-                pq.add(tag, 1);
+                pq.add(tag, -1);
             }
         }
 

@@ -41,7 +41,6 @@ public class HeapMinPQ<E> implements MinPQ<E> {
         if (contains(element)) {
             throw new IllegalArgumentException("Already contains " + element);
         }
-        // TODO: Replace with your code
 
         pq.add(new PriorityNode<E>(element, priority));
 
@@ -50,7 +49,6 @@ public class HeapMinPQ<E> implements MinPQ<E> {
 
     @Override
     public boolean contains(E element) {
-        // TODO: Replace with your code
 
         for(PriorityNode<E> node : pq) {
             if(node.getElement().equals(element)){
@@ -64,7 +62,6 @@ public class HeapMinPQ<E> implements MinPQ<E> {
 
     @Override
     public double getPriority(E element) {
-        // TODO: Replace with your code
 
         for(PriorityNode<E> node : pq) {
             if(node.getElement().equals(element)){
@@ -81,7 +78,6 @@ public class HeapMinPQ<E> implements MinPQ<E> {
         if (isEmpty()) {
             throw new NoSuchElementException("PQ is empty");
         }
-        // TODO: Replace with your code
 
         return pq.peek().getElement();
 
@@ -93,7 +89,6 @@ public class HeapMinPQ<E> implements MinPQ<E> {
         if (isEmpty()) {
             throw new NoSuchElementException("PQ is empty");
         }
-        // TODO: Replace with your code
 
         return pq.poll().getElement();
 
@@ -105,7 +100,6 @@ public class HeapMinPQ<E> implements MinPQ<E> {
         if (!contains(element)) {
             throw new NoSuchElementException("PQ does not contain " + element);
         }
-        // TODO: Replace with your code
 
         PriorityNode<E> nodeToChange = null;
         for(PriorityNode<E> node : pq){
@@ -124,7 +118,6 @@ public class HeapMinPQ<E> implements MinPQ<E> {
 
     @Override
     public int size() {
-        // TODO: Replace with your code
 
         return pq.size();
 

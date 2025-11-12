@@ -24,7 +24,6 @@ public class SequentialSearchAutocomplete implements Autocomplete {
 
     @Override
     public void addAll(Collection<? extends CharSequence> terms) {
-        // TODO: Replace with your code
 
         elements.addAll(terms);
 
@@ -33,7 +32,6 @@ public class SequentialSearchAutocomplete implements Autocomplete {
 
     @Override
     public List<CharSequence> allMatches(CharSequence prefix) {
-        // TODO: Replace with your code
 
         List<CharSequence> result = new ArrayList<>();
 

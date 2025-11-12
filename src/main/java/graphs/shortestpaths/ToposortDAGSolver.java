@@ -25,7 +25,37 @@ public class ToposortDAGSolver<V> implements ShortestPathSolver<V> {
         edgeTo = new HashMap<>();
         distTo = new HashMap<>();
         // TODO: Replace with your code
-        throw new UnsupportedOperationException("Not implemented yet");
+
+        // step 1
+        List<V> order = new ArrayList<>();
+        Set<V> visited = new HashSet<>();
+        dfsPostOrder(graph, start, visited, order);
+        Collections.reverse(order);
+
+        // step 2
+        for(V v : order) {
+            distTo.put(v, Double.POSITIVE_INFINITY);
+            edgeTo.put(v, null);
+        }
+        distTo.put(start, 0.0);
+
+        // step 3
+        for(V v : order) {
+            double currDistance = distTo.get(v);
+            if(currDistance != Double.POSITIVE_INFINITY) {
+                for(Edge<V> e : graph.neighbors(v)) {
+                    V to = e.to;
+                    double newDistance = currDistance + e.weight;
+                    double oldDistance = distTo.getOrDefault(to, Double.POSITIVE_INFINITY);
+
+                    if(newDistance < oldDistance) {
+                        distTo.put(to, newDistance);
+                        edgeTo.put(to, e);
+                    }
+                }
+            }
+        }
+        //throw new UnsupportedOperationException("Not implemented yet");
     }
 
     /**
@@ -38,7 +68,15 @@ public class ToposortDAGSolver<V> implements ShortestPathSolver<V> {
      */
     private void dfsPostOrder(Graph<V> graph, V start, Set<V> visited, List<V> result) {
         // TODO: Replace with your code
-        throw new UnsupportedOperationException("Not implemented yet");
+
+        if(!visited.contains(start)) {
+            visited.add(start);
+            for(Edge<V> e : graph.neighbors(start)) {
+                dfsPostOrder(graph, e.to, visited, result);
+            }
+            result.add(start);
+        }
+        //throw new UnsupportedOperationException("Not implemented yet");
     }
 
     @Override

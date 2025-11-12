@@ -33,7 +33,6 @@ public class OptimizedHeapMinPQ<E> implements MinPQ<E> {
      * @param elementsAndPriorities each element and its corresponding priority.
      */
     public OptimizedHeapMinPQ(Map<E, Double> elementsAndPriorities) {
-        // TODO: Replace with your code
 
         this();
         for(Map.Entry<E, Double> entry : elementsAndPriorities.entrySet()){
@@ -48,7 +47,6 @@ public class OptimizedHeapMinPQ<E> implements MinPQ<E> {
         if (contains(element)) {
             throw new IllegalArgumentException("Already contains " + element);
         }
-        // TODO: Replace with your code
 
         PriorityNode<E> newNode = new PriorityNode<E>(element, priority);
         elements.add(newNode);
@@ -61,7 +59,6 @@ public class OptimizedHeapMinPQ<E> implements MinPQ<E> {
 
     @Override
     public boolean contains(E element) {
-        // TODO: Replace with your code
 
         return elementsToIndex.containsKey(element);
 
@@ -70,7 +67,6 @@ public class OptimizedHeapMinPQ<E> implements MinPQ<E> {
 
     @Override
     public double getPriority(E element) {
-        // TODO: Replace with your code
 
         for(int i = 1; i < elements.size(); i++) {
             PriorityNode<E> node = elements.get(i);
@@ -89,7 +85,6 @@ public class OptimizedHeapMinPQ<E> implements MinPQ<E> {
         if (isEmpty()) {
             throw new NoSuchElementException("PQ is empty");
         }
-        // TODO: Replace with your code
 
         return elements.get(1).getElement();
 
@@ -101,7 +96,6 @@ public class OptimizedHeapMinPQ<E> implements MinPQ<E> {
         if (isEmpty()) {
             throw new NoSuchElementException("PQ is empty");
         }
-        // TODO: Replace with your code
 
         E minElement = peekMin();
         int lastIndex = elements.size() - 1;
@@ -123,7 +117,6 @@ public class OptimizedHeapMinPQ<E> implements MinPQ<E> {
         if (!contains(element)) {
             throw new NoSuchElementException("PQ does not contain " + element);
         }
-        // TODO: Replace with your code
 
         int index = elementsToIndex.get(element);
         double oldPriority = elements.get(index).getPriority();
@@ -140,7 +133,6 @@ public class OptimizedHeapMinPQ<E> implements MinPQ<E> {
 
     @Override
     public int size() {
-        // TODO: Replace with your code
 
         return elements.size() - 1;
 
@@ -178,11 +170,13 @@ public class OptimizedHeapMinPQ<E> implements MinPQ<E> {
             int right = 2 * index + 1;
             int smallest = index;
 
-            if((left < elements.size()) && (elements.get(left).getPriority() < elements.get(smallest).getPriority())){
+            if((left < elements.size()) && (elements.get(left).getPriority() < 
+                elements.get(smallest).getPriority())){
                 smallest = left;
             }
 
-            if((right < elements.size()) && (elements.get(right).getPriority() < elements.get(smallest).getPriority())){
+            if((right < elements.size()) && (elements.get(right).getPriority() < 
+                elements.get(smallest).getPriority())){
                 smallest = right;
             }
 

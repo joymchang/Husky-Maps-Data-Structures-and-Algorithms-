@@ -42,7 +42,6 @@ public class UnsortedArrayMinPQ<E> implements MinPQ<E> {
         if (contains(element)) {
             throw new IllegalArgumentException("Already contains " + element);
         }
-        // TODO: Replace with your code
 
         elements.add(new PriorityNode<>(element, priority));
 
@@ -51,7 +50,6 @@ public class UnsortedArrayMinPQ<E> implements MinPQ<E> {
 
     @Override
     public boolean contains(E element) {
-        // TODO: Replace with your code
 
         for(PriorityNode<E> node : elements){
             if(Objects.equals(node.getElement(), element)) {
@@ -65,7 +63,6 @@ public class UnsortedArrayMinPQ<E> implements MinPQ<E> {
 
     @Override
     public double getPriority(E element) {
-        // TODO: Replace with your code
 
         for(PriorityNode<E> node : elements){
             if(Objects.equals(node.getElement(), element)){
@@ -82,7 +79,6 @@ public class UnsortedArrayMinPQ<E> implements MinPQ<E> {
         if (isEmpty()) {
             throw new NoSuchElementException("PQ is empty");
         }
-        // TODO: Replace with your code
 
         int indexOfMin = 0;
         double minPriority = elements.get(0).getPriority();
@@ -106,7 +102,6 @@ public class UnsortedArrayMinPQ<E> implements MinPQ<E> {
         if (isEmpty()) {
             throw new NoSuchElementException("PQ is empty");
         }
-        // TODO: Replace with your code
 
         int indexOfMin = 0;
         double minPriority = elements.get(0).getPriority();
@@ -130,7 +125,6 @@ public class UnsortedArrayMinPQ<E> implements MinPQ<E> {
         if (!contains(element)) {
             throw new NoSuchElementException("PQ does not contain " + element);
         }
-        // TODO: Replace with your code
 
         for(int i = 0; i < elements.size(); i++) {
             PriorityNode<E> node = elements.get(i);
@@ -144,7 +138,6 @@ public class UnsortedArrayMinPQ<E> implements MinPQ<E> {
 
     @Override
     public int size() {
-        // TODO: Replace with your code
 
         return elements.size();
 
