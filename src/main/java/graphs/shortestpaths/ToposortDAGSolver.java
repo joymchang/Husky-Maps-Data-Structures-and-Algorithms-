@@ -29,17 +29,18 @@ public class ToposortDAGSolver<V> implements ShortestPathSolver<V> {
         // step 1
         List<V> order = new ArrayList<>();
         Set<V> visited = new HashSet<>();
+
+        // step 2
         dfsPostOrder(graph, start, visited, order);
         Collections.reverse(order);
 
-        // step 2
+        // step 3
         for(V v : order) {
             distTo.put(v, Double.POSITIVE_INFINITY);
             edgeTo.put(v, null);
         }
         distTo.put(start, 0.0);
 
-        // step 3
         for(V v : order) {
             double currDistance = distTo.get(v);
             if(currDistance != Double.POSITIVE_INFINITY) {
